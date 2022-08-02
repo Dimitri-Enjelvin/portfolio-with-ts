@@ -1,3 +1,4 @@
-import { default as TLink } from './components/TLink'
+import { default as THeader } from './containers/THeader'
+import { default as TWindow } from './containers/TWindow'
 
-export { TLink }
+export { THeader, TWindow }

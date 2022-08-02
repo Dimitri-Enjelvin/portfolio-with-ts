@@ -10,15 +10,24 @@ type Values = {
     status: string
 }
 
+type Errors = {
+    language: string
+    name: string
+    status: string
+}
+
 type Functions = {
     setLanguage: Dispatch<SetStateAction<string>>
     setName: Dispatch<SetStateAction<string>>
     setStatus: Dispatch<SetStateAction<string>>
+    setErrors: Dispatch<SetStateAction<Errors>>
 }
+
 
 interface TerminalContextInterface {
     values: Values
     func: Functions
+    errors: Errors
 }
 
 const TerminalContext = createContext<TerminalContextInterface | null>(null)
@@ -29,6 +38,11 @@ const TerminalContextProvider = ({ children }: TerminalContextProps) => {
     const [language, setLanguage] = useState<string>("")
     const [name, setName] = useState<string>("")
     const [status, setStatus] = useState<string>("")
+    const [errors, setErrors] = useState<Errors>({
+        language: "",
+        status: "",
+        name: "",
+    })
 
     const values: Values = {
         language,
@@ -40,10 +54,11 @@ const TerminalContextProvider = ({ children }: TerminalContextProps) => {
         setLanguage,
         setName,
         setStatus,
+        setErrors,
     }
 
     return (
-        <TerminalContext.Provider value={{ values, func }}>
+        <TerminalContext.Provider value={{ values, func, errors }}>
             {children}
         </TerminalContext.Provider>
     )

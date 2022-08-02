@@ -3,10 +3,18 @@
 $height : 16px;
 $width : 16px;
 $radius : 8px;
+$header-height : 10%;
+$header-width : 100%;
+$window-height : 90%;
+$window-width : 100%;
 $red-color : rgba(227, 53, 34);
 $orange-color : rgb(255, 165, 0);
 $green-color : rgb(60, 179, 113);
 $white-color : #FFFFFF;
+$header-background-color : rgb(104, 99, 100);
+$window-background-color : rgb(60, 60, 60);
+
+
 
 
 /* TERMINAL LINK */
@@ -96,4 +104,60 @@ input {
     margin-left: 5px;
     border-radius : $radius;
     background-color : $green-color
+}
+
+
+/* TERMINAL TEXT */
+
+.t_text_container {
+    width: fit-content; 
+}
+
+.t_text {
+    color: $white-color;
+    overflow: hidden;
+    border-right: .15em solid transparent; 
+    white-space: nowrap; 
+    letter-spacing: .15em; 
+}
+
+.t_text_error {
+    color: $red-color;
+    font-weight: bold;
+    overflow: hidden;
+    border-right: .15em solid transparent; 
+    white-space: nowrap; 
+    letter-spacing: .15em; 
+}
+
+
+/* TERMINAL HEADER */
+
+.header_container {
+    display: flex;
+    flex-direction: row;
+    height : $header-height;
+    width : $header-width;
+    background-color : $bheader-background-color;
+}
+
+.bubbles_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width : 20%
+}
+
+.link_container {
+    width : 80%;
+}
+
+
+/* TERMINAL WINDOW */ 
+
+
+.t_window {
+    height : $window-height;
+    width : $window-width;
+    background-color : $window-background-color;
 }

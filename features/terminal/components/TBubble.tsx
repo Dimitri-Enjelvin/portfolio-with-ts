@@ -26,6 +26,8 @@ const TBubble = ({ color }: TBubbleProps) => {
         )
     }
 
+    return null
+
 }
 
 export default TBubble

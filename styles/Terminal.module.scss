@@ -1,0 +1,16 @@
+$terminal-height : 65vh;
+$terminal-width : 60vw;
+$terminal-width-mobile: 90vw;
+$terminal-radius : 10px;
+$terminal-border-color : rgb(104, 99, 100);
+
+.terminal_container {
+    display: flex;
+    flex-direction: column;
+    height : $terminal-height;
+    width : $terminal-width;
+    border : 3px solid $terminal-border-color;
+    border-radius : $terminal-radius;
+    z-index: 1;
+    overflow: hidden;
+}
