@@ -3,18 +3,19 @@ import React from 'react'
 import TBubble from '../components/TBubble'
 import TLink from '../components/TLink'
 
+import styles from '../styles.module.scss'
 
 const THeader = () => {
     return (
-        <div className="header_container">
+        <div className={styles.header_container}>
 
-            <div className="bubbles_container">
+            <div className={styles.bubbles_container}>
                 <TBubble color="red" />
                 <TBubble color="orange" />
                 <TBubble color="green" />
             </div>
 
-            <div className="link_container">
+            <div className={styles.link_container}>
                 <TLink />
             </div>
 

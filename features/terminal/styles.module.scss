@@ -25,21 +25,21 @@ $window-background-color : rgb(60, 60, 60);
     align-items: center;
     justify-content: center;
 
+    a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
     
 }
 
-a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
 
 /* TERMINAL INPUT */
 
 
-input {
+.input {
     // visibility: hidden;
     width: 100%;
     background: none;
@@ -138,7 +138,7 @@ input {
     flex-direction: row;
     height : $header-height;
     width : $header-width;
-    background-color : $bheader-background-color;
+    background-color : $header-background-color;
 }
 
 .bubbles_container {

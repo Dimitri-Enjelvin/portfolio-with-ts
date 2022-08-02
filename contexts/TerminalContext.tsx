@@ -30,7 +30,7 @@ interface TerminalContextInterface {
     errors: Errors
 }
 
-const TerminalContext = createContext<TerminalContextInterface | null>(null)
+const TerminalContext = createContext<TerminalContextInterface>(undefined!)
 
 
 const TerminalContextProvider = ({ children }: TerminalContextProps) => {
