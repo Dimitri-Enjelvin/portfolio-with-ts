@@ -3,19 +3,20 @@ import React, { useRef } from 'react'
 import styles from '../styles.module.scss'
 
 interface TInputProps {
-    onFunc: React.Dispatch<React.SetStateAction<string>>
+    onSubmit: React.Dispatch<React.SetStateAction<string>>
 }
 
-const TInput = ({ onFunc }: TInputProps) => {
-    const inputRef = useRef<HTMLInputElement | null>(null)
+const TInput = ({ onSubmit }: TInputProps) => {
+    const inputRef = useRef<HTMLInputElement>(null)
 
-    const onSubmit = (e: React.SyntheticEvent<EventTarget>) => {
+    const onSubmitForm = (e: React.SyntheticEvent<EventTarget>) => {
         e.preventDefault()
+        console.log(inputRef.current)
 
-        onFunc("FR")
+        onSubmit("FR")
     }
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmitForm}>
             <input
                 ref={inputRef}
                 className={styles.input}

@@ -10,7 +10,7 @@ type Values = {
     status: string
 }
 
-type Errors = {
+export type Errors = {
     language: string
     name: string
     status: string

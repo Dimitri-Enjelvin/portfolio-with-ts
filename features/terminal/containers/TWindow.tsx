@@ -20,7 +20,7 @@ const TWindow = () => {
         <div className={styles.t_window}>
             <TText text="Please enter your language (FR/EN)" input={language} prevInput="not-null" type={errors.language ? "error" : "normal"} />
             <TText text={t('traduction:language-confirmed')} input={status} prevInput={language} type={errors.language ? "error" : "normal"} />
-            <TInput onFunc={func.setLanguage} />
+            <TInput onSubmit={func.setLanguage} />
         </div>
     )
 }
