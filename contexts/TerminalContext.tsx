@@ -11,12 +11,12 @@ type Values = {
 }
 
 export type Errors = {
-    language: string
-    name: string
-    status: string
+    language?: string
+    name?: string
+    status?: string
 }
 
-type Functions = {
+export type Functions = {
     setLanguage: Dispatch<SetStateAction<string>>
     setName: Dispatch<SetStateAction<string>>
     setStatus: Dispatch<SetStateAction<string>>

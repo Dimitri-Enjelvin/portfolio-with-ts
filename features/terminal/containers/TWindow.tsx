@@ -7,6 +7,8 @@ import TInput from "../components/TInput";
 import useLoading from "@hooks/useLoading";
 import useTerminal from "../hooks/useTerminal";
 
+import { LanguageSetting } from "../functions";
+
 import styles from '../styles.module.scss'
 
 const TWindow = () => {
@@ -18,9 +20,9 @@ const TWindow = () => {
 
     return (
         <div className={styles.t_window}>
-            <TText text="Please enter your language (FR/EN)" input={language} prevInput="not-null" type={errors.language ? "error" : "normal"} />
+            <TText text="Please enter your language (FR/EN)" input={errors.language ? errors.language : language} prevInput="not-null" type={errors.language ? "error" : "normal"} />
             <TText text={t('traduction:language-confirmed')} input={status} prevInput={language} type={errors.language ? "error" : "normal"} />
-            <TInput onSubmit={func.setLanguage} />
+            <TInput onSubmit={LanguageSetting} func={func} />
         </div>
     )
 }

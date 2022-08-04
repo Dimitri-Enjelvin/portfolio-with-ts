@@ -1,19 +1,21 @@
-import React, { useRef } from 'react'
+import React, { RefObject, useRef } from 'react'
+import { Errors, Functions } from '@contexts/TerminalContext'
 
 import styles from '../styles.module.scss'
 
 interface TInputProps {
-    onSubmit: React.Dispatch<React.SetStateAction<string>>
+    onSubmit: (inputRef: RefObject<HTMLInputElement> | null, func: Functions) => void
+    func: Functions
 }
 
-const TInput = ({ onSubmit }: TInputProps) => {
+const TInput = ({ onSubmit, func }: TInputProps) => {
     const inputRef = useRef<HTMLInputElement>(null)
 
     const onSubmitForm = (e: React.SyntheticEvent<EventTarget>) => {
         e.preventDefault()
         console.log(inputRef.current)
 
-        onSubmit("FR")
+        onSubmit(inputRef, func)
     }
     return (
         <form onSubmit={onSubmitForm}>

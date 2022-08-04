@@ -1,25 +1,31 @@
 import { RefObject } from "react"
-import { Errors } from "@contexts/TerminalContext"
+import { Errors, Functions } from "@contexts/TerminalContext"
 import i18n from "i18next"
 
-const LanguageSetting = (inputRef: RefObject<HTMLInputElement> | null, setState: React.Dispatch<React.SetStateAction<string>>, setError: React.Dispatch<React.SetStateAction<Errors>>) => {
+const LanguageSetting = (inputRef: RefObject<HTMLInputElement> | null, func: Functions) => {
 
-    // i18n.changeLanguage("fr")
+    const { setLanguage, setErrors } = func
 
     const value = inputRef?.current?.value.toLowerCase()
-    const french = 'fr' || 'french' || 'français' || 'francais'
-    const english = value === 'en' || value === 'english' || value === 'anglais'
+    const french: boolean = value === 'fr' || value === 'french' || value === 'français' || value === 'francais'
+    const english: boolean = value === 'en' || value === 'english' || value === 'anglais'
 
-    // empty input case
-
-    if (value === undefined || value === "") {
-        console.log('please type something')
-    }
-
-    switch (value) {
-        case (undefined || ""): setError()
+    switch (true) {
+        case (value === undefined || value === ""): setErrors({ language: "Please type something" })
             break
-        case french: setError({ language: "" }), i18n.changeLanguage('fr'), setState(i18n.t(''))
+        case (french):
+            setErrors({ language: "" }),
+                i18n.changeLanguage('fr'),
+                setLanguage(i18n.t('FR'))
+            break
+        case (english):
+            setErrors({ language: "" }),
+                i18n.changeLanguage('en'),
+                setLanguage(i18n.t('EN'))
+            break
+        case (!french && !english):
+            setErrors({ language: 'language does not exist' })
+            break
     }
 
 }
