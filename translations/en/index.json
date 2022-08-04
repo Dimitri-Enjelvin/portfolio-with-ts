@@ -1,4 +1,9 @@
 {
     "language-confirmed": "Ohh English ! Want some tea ?",
-    "status-asked": "Are you here as a (Recruiter/Customer) ?"
+    "status-asked": "Are you here as a (Recruiter/Customer) ?",
+    "yes": "YES",
+    "no": "NO",
+    "country-joke-error": "You have to answer by YES ou NO",
+    "language-error": "Enter a valid language",
+    "empty-error": "You have to type something"
 }

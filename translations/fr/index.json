@@ -1,5 +1,9 @@
 {
     "language-confirmed": "Ohh le Français ! Une baguette ?",
-    "status-asked": "Es-tu ici en tant que (Recruteur/Client) ?"
-    
+    "status-asked": "Es-tu ici en tant que (Recruteur/Client) ?",
+    "yes": "OUI",
+    "no": "NON",
+    "country-joke-error": "Tu dois répondre par OUI ou NON",
+    "language-error": "Entres une langue valide",
+    "empty-error": "Ecris quelque chose..."
 }

@@ -11,7 +11,7 @@ const LanguageSetting = (inputRef: RefObject<HTMLInputElement> | null, func: Fun
     const english: boolean = value === 'en' || value === 'english' || value === 'anglais'
 
     switch (true) {
-        case (value === undefined || value === ""): setErrors({ language: "Please type something" })
+        case (value === undefined || value === ""): setErrors({ language: i18n.t('traduction:empty-error') })
             break
         case (french):
             setErrors({ language: "" }),
@@ -24,7 +24,7 @@ const LanguageSetting = (inputRef: RefObject<HTMLInputElement> | null, func: Fun
                 setLanguage(i18n.t('EN'))
             break
         case (!french && !english):
-            setErrors({ language: 'language does not exist' })
+            setErrors({ language: i18n.t('traduction:language-error') })
             break
     }
 
@@ -34,4 +34,34 @@ const LanguageSetting = (inputRef: RefObject<HTMLInputElement> | null, func: Fun
 
 }
 
-export { LanguageSetting }
+const CountryJokeSetting = (inputRef: RefObject<HTMLInputElement> | null, func: Functions) => {
+
+    const { setResCountryJoke, setErrors } = func
+
+    const value = inputRef?.current?.value.toLowerCase()
+    const yes = value === 'yes' || value === 'y' || value === 'oui' || value === 'o'
+    const no = value === 'no' || value === 'n' || value === 'non'
+
+    switch (true) {
+        case (value === undefined || value === ""): setErrors({ resCountryJoke: i18n.t('traduction:empty-error') })
+            break
+        case (yes):
+            setErrors({ resCountryJoke: "" }),
+                setResCountryJoke(i18n.t('traduction:yes'))
+            break
+        case (no):
+            setErrors({ resCountryJoke: "" }),
+                setResCountryJoke(i18n.t('traduction:no'))
+            break
+        case (!yes && !no):
+            setErrors({ resCountryJoke: i18n.t('traduction:country-joke-error') })
+            break
+    }
+
+    if (inputRef?.current) {
+        inputRef.current.value = ""
+    }
+
+}
+
+export { LanguageSetting, CountryJokeSetting }
