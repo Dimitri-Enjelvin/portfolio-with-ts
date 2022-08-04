@@ -28,6 +28,10 @@ const LanguageSetting = (inputRef: RefObject<HTMLInputElement> | null, func: Fun
             break
     }
 
+    if (inputRef?.current) {
+        inputRef.current.value = ""
+    }
+
 }
 
 export { LanguageSetting }
